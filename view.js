@@ -22,10 +22,9 @@ function getTable(model) {
 
 function questions(model) {
 
-    const {billAmount, percentage} = model
     const question1 = 'Left temperature is source?'
     const question2 = 'Temperature value to convert?'
-    const question2 = 'From'
+    const question3 = 'From'
     const choices = ["Celsius", "Fahrenheit", "Kelvin"]
 
     return  inquirer.prompt([
@@ -45,6 +44,13 @@ function questions(model) {
         {
             type: 'list',
             name: 'unit',
+            message: question3,
+            default: 'Use arrow keys',
+            choices: choices
+        },
+        {
+            type: 'list',
+            name: 'toUnit',
             message: question3,
             default: 'Use arrow keys',
             choices: choices

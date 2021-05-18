@@ -11,9 +11,12 @@ async function app(state, update, view) {
     console.log(title)
     printTable(table)
 
-    const { side, number, unit } = await (questions)
-    //const update = update(side, number, unit, model)
+    const { side, number, unit, toUnit } = await (questions)
 
+    if(side === 'y')
+        const updateLeft = update(number, unit, toUnit,model)
+    else
+         const updateRight = update(number, unit, toUnit,model)
 
 
 
