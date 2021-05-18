@@ -13,10 +13,10 @@ function getTitle(){
 function getTable(model) {
     return [
         {
-            "LeftValue": `$ ${model.leftValue}`,
-            "LeftUnit": `${model.leftUnit}`,
-            "rightValue": `$ ${model.rightValue}`,
-            "rightUnit": `$ ${model.rightUnit}`
+            "LeftValue":  model.leftValue,
+            "LeftUnit": model.leftUnit,
+            "rightValue": model.rightValue,
+            "rightUnit": model.rightUnit
         }];
 }
 
@@ -37,7 +37,7 @@ function questions(model) {
             
         {
             type: 'input',
-            name: 'number',
+            name: 'temperature',
             message: question2,
             default: 0 // change
         },
@@ -65,8 +65,10 @@ function view(model) {
     return {
         title: getTitle(),
         table: getTable(model),
-        questions: questions(model)
     }
 }
 
-module.exports = {view}
+module.exports = {
+    view,
+    questions
+}
