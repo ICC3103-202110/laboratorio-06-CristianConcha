@@ -33,7 +33,15 @@ function questions(model) {
             type: 'autocomplete',
             name: 'side',
             message: question1,
-            default: "Y/n",
+            default: "y/n",
+            transformer: function (value) {
+                if (value === 'y')
+                    return 'Yes'
+                else if(value === 'n')
+                    return 'No'
+                else
+                    return ''
+            }
         },
             
         {
