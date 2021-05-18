@@ -26,6 +26,7 @@ function questions(model) {
     const question1 = 'Left temperature is source?'
     const question2 = 'Temperature value to convert?'
     const question3 = 'From'
+    const question4 = 'To'
     const choices = ["Celsius", "Fahrenheit", "Kelvin"]
 
     return  inquirer.prompt([
@@ -43,7 +44,6 @@ function questions(model) {
                     return ''
             }
         },
-            
         {
             type: 'input',
             name: 'temperature',
@@ -60,7 +60,7 @@ function questions(model) {
         {
             type: 'list',
             name: 'toUnit',
-            message: question3,
+            message: question4,
             default: 'Use arrow keys',
             choices: choices
         }
