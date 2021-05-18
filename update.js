@@ -25,6 +25,8 @@ function update(side, temperature, unit, toUnit, model) {
         newTemperature = fahrenheitToKelvin(Number(temperature))
     else if (unit === "Fahrenheit" && toUnit === "Celsius")
         newTemperature = fahrenheitToCelsius(Number(temperature))
+    else
+        newTemperature = temperature
     
     if(side === 'y')
         return {
