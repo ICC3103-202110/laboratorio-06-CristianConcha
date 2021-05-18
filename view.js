@@ -2,6 +2,7 @@ const figlet = require('figlet')
 const chalk = require('chalk')
 const inquirer = require('inquirer')
 
+
 function getTitle(){
     return chalk.magenta(
         figlet.textSync(
@@ -29,17 +30,17 @@ function questions(model) {
 
     return  inquirer.prompt([
         {
-            type: 'input',
+            type: 'autocomplete',
             name: 'side',
             message: question1,
-            default: "(Y/n)",            
+            default: "Y/n",
         },
             
         {
             type: 'input',
             name: 'temperature',
             message: question2,
-            default: 0 // change
+            default: model.leftValue
         },
         {
             type: 'list',
