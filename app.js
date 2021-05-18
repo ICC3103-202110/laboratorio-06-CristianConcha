@@ -1,7 +1,7 @@
 const { printTable } = require('console-table-printer')
 const {questions} = require('./view')
 
-async function app(state, updateLeft, updateRight, view) {
+async function app(state, update, view) {
     
     while (true) {
 
@@ -13,20 +13,13 @@ async function app(state, updateLeft, updateRight, view) {
         printTable(table)
 
         const { side, temperature, unit, toUnit } = await (questions(model))
-
-        if (side === 'y')
-            updatedModel = updateLeft(temperature, unit, toUnit, model)
-        else
-            updatedModel = updateRight(temperature, unit, toUnit, model)
-    
+        const updatedModel = update(side, temperature, unit, toUnit, model) 
         state = {
             ...state,
             model: updatedModel,
             currentView: view(updatedModel)
         }
     }
-
-
 }
 
 module.exports = {app}
